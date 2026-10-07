@@ -18,7 +18,7 @@ Visual source of truth: [`reference/madtown-website-reference.png`](reference/ma
 ```bash
 npm install          # install dependencies
 npm run dev          # http://localhost:3000
-npm run typecheck    # tsc --noEmit
+npm run typecheck    # next typegen + tsc --noEmit
 npm run lint         # eslint
 npm run format       # prettier --write .
 npm run build        # production build
