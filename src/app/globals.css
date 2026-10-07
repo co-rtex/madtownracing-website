@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   MadTown Racing design tokens
+   ~85% dark neutrals · ~12% warm white · ~3–5% race red.
+   Signal lime is reserved for rare, purposeful highlights.
+------------------------------------------------------------------- */
+:root {
+  --track-black: #080808;
+  --garage-black: #111111;
+  --pit-black: #171717;
+  --pit-gray: #272727;
+
+  --warm-white: #f4f2ec;
+  --muted-white: #d8d6d0;
+  --steel: #a6a6a6;
+  --dark-steel: #666666;
+
+  --race-red: #e21b22;
+  --race-red-dark: #ad1015;
+  /* Brighter red for small text on black so it clears WCAG AA (4.5:1). */
+  --race-red-text: #ff4a4f;
+  /* Small secondary text. --dark-steel is reserved for rules/borders because
+     it falls below 4.5:1 on black. */
+  --dim-text: #8c8c8c;
+
+  --signal: #d8ff3e;
+  --success: #37d67a;
+  --warning: #ffb020;
+
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.2);
+
+  --header-h: 64px;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-track: var(--track-black);
+  --color-garage: var(--garage-black);
+  --color-pit: var(--pit-black);
+  --color-pit-gray: var(--pit-gray);
+  --color-warm: var(--warm-white);
+  --color-muted: var(--muted-white);
+  --color-steel: var(--steel);
+  --color-dark-steel: var(--dark-steel);
+  --color-dim: var(--dim-text);
+  --color-red: var(--race-red);
+  --color-red-dark: var(--race-red-dark);
+  --color-red-text: var(--race-red-text);
+  --color-signal: var(--signal);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --font-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --breakpoint-xs: 26rem;
+}
+
+@layer base {
+  html {
+    background: var(--track-black);
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+
+  body {
+    background: var(--track-black);
+    color: var(--warm-white);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--race-red);
+    color: var(--warm-white);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--warm-white);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Huge condensed display type with very tight leading. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: -0.005em;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Faint technical grid used behind diagrams and placeholders. */
+  .tech-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ------------------------------------------------------------------
+   Motion — every effect here is disabled under prefers-reduced-motion.
+------------------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.35em, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wipe {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.anim-rise {
+  animation: rise 600ms cubic-bezier(0.2, 0.7, 0.1, 1) both;
+}
+.anim-fade {
+  animation: fade 700ms ease-out both;
+}
+.anim-settle {
+  animation: settle 1400ms cubic-bezier(0.2, 0.7, 0.1, 1) both;
+}
+.anim-wipe {
+  transform-origin: left;
+  animation: wipe 900ms cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+.anim-draw {
+  stroke-dasharray: var(--len, 2000);
+  stroke-dashoffset: var(--len, 2000);
+  animation: draw 2200ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.anim-pulse {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+/* Scroll reveal, toggled by the <Reveal> client component. Content is
+   visible by default when JS is unavailable (no .reveal-armed class). */
+.reveal-armed [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 600ms cubic-bezier(0.2, 0.7, 0.1, 1),
+    transform 600ms cubic-bezier(0.2, 0.7, 0.1, 1);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+.reveal-armed[data-visible="true"] [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+.reveal-armed [data-reveal-line] {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 900ms cubic-bezier(0.7, 0, 0.2, 1) 150ms;
+}
+.reveal-armed[data-visible="true"] [data-reveal-line] {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim-draw {
+    stroke-dashoffset: 0;
+  }
+  .reveal-armed [data-reveal],
+  .reveal-armed [data-reveal-line] {
+    opacity: 1;
+    transform: none;
+  }
+}
