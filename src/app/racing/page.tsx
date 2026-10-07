@@ -8,7 +8,13 @@ import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { TelemetryLine } from "@/components/ui/TelemetryLine";
 import { media } from "@/content/media";
-import { calendarSeason, events, raceFormats, racingPillars } from "@/content/racing";
+import {
+  calendarSeason,
+  calendarTitle,
+  events,
+  raceFormats,
+  racingPillars,
+} from "@/content/racing";
 import { siteConfig } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -100,7 +106,7 @@ export default function RacingPage() {
         <Container>
           <SectionLabel number="02">Calendar</SectionLabel>
           <DisplayHeading id="calendar-heading" size="md" className="mt-4 mb-10">
-            {calendarSeason} race calendar
+            {calendarTitle(calendarSeason)}
           </DisplayHeading>
           <RaceCalendar season={calendarSeason} events={events} />
         </Container>

@@ -8,7 +8,14 @@ import Link from "next/link";
  * Renders confirmed events as TrackCards. With no confirmed events it shows a
  * neutral "coming soon" state that never implies specific circuits or rounds.
  */
-export function RaceCalendar({ season, events }: { season: string; events: RaceEvent[] }) {
+export function RaceCalendar({
+  season,
+  events,
+}: {
+  /** Confirmed season only; omit when unknown. */
+  season?: string | null;
+  events: RaceEvent[];
+}) {
   if (events.length > 0) {
     return (
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -23,7 +30,8 @@ export function RaceCalendar({ season, events }: { season: string; events: RaceE
   return <CalendarComingSoon season={season} />;
 }
 
-function CalendarComingSoon({ season }: { season: string }) {
+function CalendarComingSoon({ season }: { season?: string | null }) {
+  const year = season?.trim();
   return (
     <div className="relative overflow-hidden border border-line-strong bg-pit">
       <div
@@ -63,10 +71,12 @@ function CalendarComingSoon({ season }: { season: string }) {
 
         {/* Timing-screen style status readout */}
         <dl className="self-end border border-line bg-track/70 font-mono text-xs tracking-[0.14em] uppercase lg:col-span-5">
-          <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4">
-            <dt className="text-dim">Season</dt>
-            <dd className="text-warm">{season}</dd>
-          </div>
+          {year && (
+            <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4">
+              <dt className="text-dim">Season</dt>
+              <dd className="text-warm">{year}</dd>
+            </div>
+          )}
           <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4">
             <dt className="text-dim">Schedule</dt>
             <dd className="flex items-center gap-2 text-warning">

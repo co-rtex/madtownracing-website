@@ -48,19 +48,19 @@ browser instead, set `PW_CHROMIUM_PATH=/path/to/chrome`.
 
 Everything a future student leader needs to update lives in `src/content/`:
 
-| File             | What it controls                                                               |
-| ---------------- | ------------------------------------------------------------------------------ |
-| `site.ts`        | Name, location, Instagram, **joinUrl, sponsorEmail, sponsorDeckUrl**, nav      |
-| `roadmap.ts`     | Road to the Grid milestones and their status (`complete/active/next/upcoming`) |
-| `team.ts`        | Departments and **members** (empty = "Team roster coming soon")                |
-| `roles.ts`       | Recruitment roles and the interest → role mapping on `/join`                   |
-| `disciplines.ts` | Homepage "It takes more than a driver" disciplines                             |
-| `car.ts`         | Car systems, descriptions, hotspot positions, and image slots                  |
-| `racing.ts`      | Race formats, pillars, `calendarSeason`, **events** (empty = "Coming soon")    |
-| `partners.ts`    | Benefits, tiers, **partners** (empty = "Founding partners" state)              |
-| `journal.ts`     | Articles (`draft: true` hides an article in production)                        |
-| `pit.ts`         | Illustrative pit sequence (labelled as illustrative in the UI)                 |
-| `media.ts`       | Photography manifest (see below)                                               |
+| File             | What it controls                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| `site.ts`        | Name, location, Instagram, **joinUrl, sponsorEmail, sponsorDeckUrl**, nav            |
+| `roadmap.ts`     | Road to the Grid milestones and their status (`complete/active/next/upcoming`)       |
+| `team.ts`        | Departments and **members** (empty = "Team roster coming soon")                      |
+| `roles.ts`       | Recruitment roles and the interest → role mapping on `/join`                         |
+| `disciplines.ts` | Homepage "It takes more than a driver" disciplines                                   |
+| `car.ts`         | Car systems, descriptions, hotspot positions, and image slots                        |
+| `racing.ts`      | Race formats, pillars, optional `calendarSeason`, **events** (empty = "Coming soon") |
+| `partners.ts`    | Benefits, tiers, **partners** (empty = "Founding partners" state)                    |
+| `journal.ts`     | Articles (`draft: true` hides an article in production)                              |
+| `pit.ts`         | Illustrative pit sequence (labelled as illustrative in the UI)                       |
+| `media.ts`       | Photography manifest (see below)                                                     |
 
 Empty URLs/emails never produce dead links — each has a designed fallback state.
 

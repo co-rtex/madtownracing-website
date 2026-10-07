@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { calendarTitle } from "../src/content/racing";
 
 const routes = [
   "/",
@@ -82,10 +83,21 @@ test("missing partner contact details degrade gracefully", async ({ page }) => {
 test("race calendar shows a neutral coming-soon state", async ({ page }) => {
   await page.goto("/racing");
   const calendar = page.locator("section[aria-labelledby='calendar-heading']");
-  await expect(calendar.getByRole("heading", { name: /2027 race calendar/i })).toBeVisible();
+  // Title follows content/racing.ts: "<season> race calendar" only when a season is confirmed.
+  await expect(calendar.locator("#calendar-heading")).toHaveText(calendarTitle());
   await expect(calendar.getByText(/coming soon/i)).toBeVisible();
+  await expect(
+    calendar.getByText(/published once MadTown Racing.s competition schedule is confirmed/i),
+  ).toBeVisible();
   await expect(calendar.getByText(/round \d/i)).toHaveCount(0);
   await expect(calendar.locator("svg path[stroke-dasharray]")).toHaveCount(0);
+});
+
+test("calendar title never invents a season", () => {
+  expect(calendarTitle(undefined)).toBe("Race calendar");
+  expect(calendarTitle(null)).toBe("Race calendar");
+  expect(calendarTitle("  ")).toBe("Race calendar");
+  expect(calendarTitle("2030")).toBe("2030 race calendar");
 });
 
 test("role explorer updates recommendations", async ({ page }) => {

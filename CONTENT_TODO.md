@@ -33,8 +33,10 @@ results, sponsors, people, dates, or statistics. Replace items as they become re
 ## Racing — `src/content/racing.ts`
 
 - [ ] Confirmed event entries (round, event, circuit, dates, status, optional map SVG in
-      `/public/tracks`). While empty, `/racing` shows a neutral "2027 Race Calendar — Coming
-      soon" state with no circuits or rounds. Update `calendarSeason` if the season changes.
+      `/public/tracks`). While empty, `/racing` shows a neutral "Race Calendar — Coming soon"
+      state with no circuits or rounds.
+- [ ] `calendarSeason` — leave undefined until the first competition season is confirmed. Once set
+      (e.g. `"2027"`), the heading reads "2027 Race Calendar" and the status panel shows the season.
 - [ ] Review the series-format copy against official CRS rules.
 
 ## Car — `src/content/car.ts`

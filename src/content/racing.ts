@@ -37,8 +37,18 @@ export const racingPillars = [
   },
 ] as const;
 
-/** Season shown on the race calendar heading. */
-export const calendarSeason = "2027";
+/**
+ * Competition season shown on the race calendar, e.g. "2027".
+ * Leave undefined until the team has confirmed its first season — the
+ * calendar then reads simply "Race calendar". Never enter a guessed year.
+ */
+export const calendarSeason: string | undefined = undefined;
+
+/** "2027 race calendar" when a season is confirmed, otherwise "Race calendar". */
+export function calendarTitle(season: string | null | undefined = calendarSeason): string {
+  const year = season?.trim();
+  return year ? `${year} race calendar` : "Race calendar";
+}
 
 /**
  * Confirmed MadTown Racing entries only. While empty, /racing shows the
