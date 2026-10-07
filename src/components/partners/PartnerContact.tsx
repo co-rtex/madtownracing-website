@@ -3,7 +3,9 @@ import { siteConfig } from "@/content/site";
 
 /** Partnership contact options, degrading gracefully when details are missing. */
 export function PartnerContact() {
-  const email = siteConfig.sponsorEmail || siteConfig.contactEmail;
+  // Single switch: set `sponsorEmail` in content/site.ts to replace the
+  // Instagram fallback with a "Contact the Team" email button.
+  const email = siteConfig.sponsorEmail;
   const hasDeck = Boolean(siteConfig.sponsorDeckUrl);
 
   return (

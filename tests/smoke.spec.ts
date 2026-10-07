@@ -79,6 +79,15 @@ test("missing partner contact details degrade gracefully", async ({ page }) => {
   );
 });
 
+test("race calendar shows a neutral coming-soon state", async ({ page }) => {
+  await page.goto("/racing");
+  const calendar = page.locator("section[aria-labelledby='calendar-heading']");
+  await expect(calendar.getByRole("heading", { name: /2027 race calendar/i })).toBeVisible();
+  await expect(calendar.getByText(/coming soon/i)).toBeVisible();
+  await expect(calendar.getByText(/round \d/i)).toHaveCount(0);
+  await expect(calendar.locator("svg path[stroke-dasharray]")).toHaveCount(0);
+});
+
 test("role explorer updates recommendations", async ({ page }) => {
   await page.goto("/join");
   const business = page.getByRole("button", { name: "Business", exact: true });

@@ -1,7 +1,6 @@
 import { CtaBand } from "@/components/layout/CtaBand";
 import { PageHero } from "@/components/layout/PageHero";
-import { TrackCard } from "@/components/racing/TrackCard";
-import { TrackOutline } from "@/components/racing/TrackOutline";
+import { RaceCalendar } from "@/components/racing/RaceCalendar";
 import { Container } from "@/components/ui/Container";
 import { DisplayHeading } from "@/components/ui/DisplayHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -9,7 +8,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { TelemetryLine } from "@/components/ui/TelemetryLine";
 import { media } from "@/content/media";
-import { events, raceFormats, racingPillars } from "@/content/racing";
+import { calendarSeason, events, raceFormats, racingPillars } from "@/content/racing";
 import { siteConfig } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -99,63 +98,11 @@ export default function RacingPage() {
 
       <Section tone="garage" aria-labelledby="calendar-heading">
         <Container>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <SectionLabel number="02">Calendar</SectionLabel>
-              <DisplayHeading id="calendar-heading" size="md" className="mt-4">
-                Future race calendar
-              </DisplayHeading>
-            </div>
-            <p className="eyebrow text-steel">
-              {events.length ? `${events.length} rounds` : "Schedule to be announced"}
-            </p>
-          </div>
-
-          {events.length > 0 ? (
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {events.map((event) => (
-                <li key={event.round}>
-                  <TrackCard event={event} />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="mt-10 border border-line-strong">
-              <ul aria-hidden="true" className="grid grid-cols-2 gap-px bg-line lg:grid-cols-4">
-                {[0, 1, 2, 3].map((slot) => (
-                  <li key={slot} className="bg-garage p-5 opacity-60">
-                    <div className="flex justify-between font-mono text-[0.7rem] tracking-wider text-dim uppercase">
-                      <span>Round {String(slot + 1).padStart(2, "0")}</span>
-                      <span>TBA</span>
-                    </div>
-                    <div className="mx-auto mt-4 max-w-[180px]">
-                      <TrackOutline variant={slot} />
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col gap-4 border-t border-line-strong bg-pit p-6 md:flex-row md:items-center md:justify-between md:p-8">
-                <div>
-                  <p className="font-display text-2xl font-bold uppercase">
-                    Schedule to be announced
-                  </p>
-                  <p className="mt-1 text-sm text-steel">
-                    MadTown Racing&rsquo;s first entries will be published here once confirmed.
-                    Follow the Road to the Grid for progress.
-                  </p>
-                </div>
-                <a
-                  href={siteConfig.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 font-mono text-xs tracking-[0.14em] text-muted uppercase hover:text-warm"
-                >
-                  Updates on {siteConfig.instagramHandle} ↗
-                  <span className="sr-only">(opens in a new tab)</span>
-                </a>
-              </div>
-            </div>
-          )}
+          <SectionLabel number="02">Calendar</SectionLabel>
+          <DisplayHeading id="calendar-heading" size="md" className="mt-4 mb-10">
+            {calendarSeason} race calendar
+          </DisplayHeading>
+          <RaceCalendar season={calendarSeason} events={events} />
         </Container>
       </Section>
 

@@ -37,8 +37,12 @@ export const racingPillars = [
   },
 ] as const;
 
+/** Season shown on the race calendar heading. */
+export const calendarSeason = "2027";
+
 /**
  * Confirmed MadTown Racing entries only. While empty, /racing shows the
- * "schedule to be announced" state. Add `mapSvg` paths under /public/tracks.
+ * "calendar coming soon" state — no placeholder circuits or rounds.
+ * Add circuit maps as SVGs under /public/tracks and reference them via `mapSvg`.
  */
 export const events: RaceEvent[] = [];

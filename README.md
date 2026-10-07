@@ -56,7 +56,7 @@ Everything a future student leader needs to update lives in `src/content/`:
 | `roles.ts`       | Recruitment roles and the interest → role mapping on `/join`                   |
 | `disciplines.ts` | Homepage "It takes more than a driver" disciplines                             |
 | `car.ts`         | Car systems, descriptions, hotspot positions, and image slots                  |
-| `racing.ts`      | Race formats, racing pillars, **events** (empty = "Schedule TBA")              |
+| `racing.ts`      | Race formats, pillars, `calendarSeason`, **events** (empty = "Coming soon")    |
 | `partners.ts`    | Benefits, tiers, **partners** (empty = "Founding partners" state)              |
 | `journal.ts`     | Articles (`draft: true` hides an article in production)                        |
 | `pit.ts`         | Illustrative pit sequence (labelled as illustrative in the UI)                 |

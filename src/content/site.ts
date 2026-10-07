@@ -17,12 +17,13 @@ export const siteConfig = {
   instagramHandle: "@madtownracing",
   /** External application / interest form (e.g. Google Form). */
   joinUrl: "",
-  /** Public contact email for partnership enquiries. */
+  /**
+   * Public contact email for partnership enquiries. This is the only value to
+   * change: while empty, /partners falls back to Instagram DMs.
+   */
   sponsorEmail: "",
   /** Link to a hosted partnership deck PDF. */
   sponsorDeckUrl: "",
-  /** General contact email. */
-  contactEmail: "",
   platform: {
     series: "Collegiate Racing Series",
     class: "CRS A-Series",
