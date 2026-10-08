@@ -10,30 +10,32 @@ export const milestones: Milestone[] = [
     title: "Form the Team",
     status: "active",
     summary:
-      "Recruit founding members across engineering, operations, business, and media, and establish how the organization runs.",
+      "Build an interdisciplinary founding team, define leadership, and establish the systems needed to operate as a serious student race program.",
     notes: [
-      "Recruiting founding members from every discipline.",
-      "Defining leadership roles and department structure.",
+      "Recruiting students across engineering, data, operations, business, media, and driving.",
+      "Defining leadership roles, working groups, and team procedures.",
+      "Building the club's public presence and internal communication structure.",
     ],
     articles: ["why-we-are-building-madtown-racing"],
   },
   {
     number: "02",
-    title: "Secure Funding",
+    title: "Establish the Program",
     status: "active",
     summary:
-      "Build relationships with founding partners and assemble the budget needed to run a competitive race program.",
+      "Build the operational foundation around the team: university processes, CRS coordination, finances, communications, and partner outreach.",
     notes: [
-      "Preparing partnership materials.",
-      "Opening conversations with prospective founding partners.",
+      "Organizing the club's financial and operational structure.",
+      "Preparing partnership materials and beginning sponsor outreach.",
+      "Coordinating next steps with the Collegiate Racing Series.",
     ],
   },
   {
     number: "03",
-    title: "Acquire the Car",
+    title: "Fund & Acquire the Car",
     status: "next",
     summary:
-      "Source and prepare a Mazda MX-5 ND that meets the Collegiate Racing Series platform requirements.",
+      "Secure the resources needed for the program and acquire the Mazda MX-5 ND platform used for Collegiate Racing Series competition.",
   },
   {
     number: "04",
