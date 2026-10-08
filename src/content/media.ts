@@ -50,10 +50,11 @@ export const media = {
     recommended: "2400×1400+",
   },
   joinHero: {
-    alt: "Students reviewing telemetry beside the car",
-    placeholder: "Join — students working on car / telemetry",
+    src: clubMedia.mtrIntroPost,
+    alt: "MadTown Racing recruiting graphic",
+    placeholder: "Join — MadTown Racing recruiting graphic",
     variant: "data",
-    recommended: "2400×1400+",
+    recommended: "Current club recruiting artwork",
   },
   partnersHero: {
     alt: "Driver helmet and race car detail in the garage",
