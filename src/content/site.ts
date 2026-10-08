@@ -11,8 +11,8 @@ export const siteConfig = {
   location: "Madison, Wisconsin",
   locationShort: "Madison, WI",
   description:
-    "MadTown Racing is a student-operated collegiate motorsports organization in Madison preparing for wheel-to-wheel competition in the Collegiate Racing Series.",
-  tagline: "Student-operated collegiate motorsports organization in Madison, Wisconsin.",
+    "MadTown Racing is a student-operated collegiate motorsports organization in Madison building toward wheel-to-wheel competition while giving students hands-on experience across engineering, race operations, data, business, media, and leadership.",
+  tagline: "Student-operated collegiate motorsports built by students across every discipline.",
   instagram: "https://www.instagram.com/madtownracing/",
   instagramHandle: "@madtownracing",
   /** External application / interest form (e.g. Google Form). */

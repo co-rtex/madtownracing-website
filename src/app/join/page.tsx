@@ -31,7 +31,7 @@ export default function JoinPage() {
             fit on the grid?
           </>
         }
-        intro="It takes more than a driver to build a competitive race team. Find a role that matches what you want to learn and help us build MadTown Racing from the ground up."
+        intro="MadTown Racing is built for students across engineering, data, business, communications, media, operations, and driving. Find a role that matches what you want to learn and help build the team from the ground up."
         asset={media.joinHero}
       >
         <a
@@ -47,7 +47,9 @@ export default function JoinPage() {
           <p className="font-display text-[clamp(1.5rem,3vw,2.4rem)] leading-none font-extrabold tracking-wide uppercase">
             You do not need prior racing experience.
           </p>
-          <p className="font-mono text-xs tracking-[0.14em] uppercase">All majors · All years</p>
+          <p className="font-mono text-xs tracking-[0.14em] uppercase">
+            All majors · All years · Build skills on and off the track
+          </p>
         </Container>
       </section>
 

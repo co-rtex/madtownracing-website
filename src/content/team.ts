@@ -10,19 +10,32 @@ export const departments: Department[] = [
     id: "technical",
     name: "Technical",
     summary: "Makes the car faster and turns data into decisions.",
-    functions: ["Race Engineering", "Data & Telemetry", "Vehicle Setup", "Software"],
+    functions: [
+      "Race Engineering",
+      "Vehicle Engineering",
+      "Fabrication & Manufacturing",
+      "Testing & Data",
+      "Software",
+    ],
   },
   {
     id: "operations",
     name: "Operations",
     summary: "Runs the race weekend, from the driver seat to the pit wall.",
-    functions: ["Drivers", "Pit Crew", "Logistics", "Safety"],
+    functions: ["Drivers", "Race Operations", "Pit Crew", "Logistics", "Safety"],
   },
   {
     id: "business",
     name: "Business",
     summary: "Funds the program, builds partnerships, and tells the story.",
-    functions: ["Sponsorships", "Finance", "Marketing", "Media"],
+    functions: [
+      "Sponsorships",
+      "Fundraising",
+      "Finance",
+      "Community Outreach",
+      "Marketing & Communications",
+      "Media",
+    ],
   },
 ];
 
