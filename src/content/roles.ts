@@ -36,6 +36,23 @@ export const roles: Role[] = [
     ],
   },
   {
+    id: "fabrication",
+    name: "Fabrication & Manufacturing",
+    department: "Technical",
+    description:
+      "Turn plans into race-ready hardware through hands-on fabrication, assembly, repair, and preparation.",
+    typicalWork: [
+      "Fabricate and assemble components",
+      "Support repairs and maintenance",
+      "Prepare tools and equipment",
+      "Document repeatable shop procedures",
+    ],
+    experience: [
+      "No prior race-shop experience required.",
+      "Hands-on curiosity and safe working habits matter most.",
+    ],
+  },
+  {
     id: "software",
     name: "Software",
     department: "Technical",
@@ -185,13 +202,13 @@ export const roleInterests: RoleInterest[] = [
     id: "faster",
     label: "Making the car faster",
     icon: "wrench",
-    roles: ["race-engineer", "data-telemetry", "mechanic"],
+    roles: ["race-engineer", "data-telemetry", "fabrication", "mechanic"],
   },
   {
     id: "trackside",
     label: "Working trackside",
     icon: "flag",
-    roles: ["mechanic", "operations", "race-engineer"],
+    roles: ["mechanic", "fabrication", "operations", "race-engineer"],
   },
   {
     id: "data",
