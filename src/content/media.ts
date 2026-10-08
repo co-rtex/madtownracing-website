@@ -1,4 +1,5 @@
 import type { MediaAsset } from "@/types/content";
+import { clubMedia } from "@/content/clubMedia";
 
 /**
  * Photography manifest. Drop approved images into /public/images and set
@@ -82,7 +83,12 @@ export const media = {
 
 /** Six tiles for the "From the Paddock" Instagram grid. */
 export const paddockTiles: MediaAsset[] = [
-  { alt: "", placeholder: "Paddock 01 — garage", variant: "garage" },
+  {
+    src: clubMedia.mtrIntroPost,
+    alt: "MadTown Racing introductory recruiting graphic",
+    placeholder: "Paddock 01 — MadTown Racing intro post",
+    variant: "garage",
+  },
   { alt: "", placeholder: "Paddock 02 — on track", variant: "track" },
   { alt: "", placeholder: "Paddock 03 — data review", variant: "data" },
   { alt: "", placeholder: "Paddock 04 — car detail", variant: "detail" },
