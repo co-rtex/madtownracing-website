@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CtaBand } from "@/components/layout/CtaBand";
 import { PageHero } from "@/components/layout/PageHero";
 import { ApplyCta } from "@/components/recruitment/ApplyCta";
@@ -6,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { DisplayHeading } from "@/components/ui/DisplayHeading";
 import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { clubMedia } from "@/content/clubMedia";
 import { media } from "@/content/media";
 import { roleInterests, roles } from "@/content/roles";
 import { pageMetadata } from "@/lib/metadata";
@@ -52,6 +54,37 @@ export default function JoinPage() {
           </p>
         </Container>
       </section>
+
+      <Section aria-labelledby="club-media-heading" divider={false}>
+        <Container>
+          <div className="grid gap-8 border border-line bg-garage p-5 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] md:p-8 lg:gap-12 lg:p-10">
+            <div className="mx-auto w-full max-w-sm">
+              <Image
+                src={clubMedia.mtrIntroPost}
+                alt="MadTown Racing introductory recruiting post"
+                width={240}
+                height={320}
+                unoptimized
+                className="h-auto w-full border border-line-strong"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <SectionLabel number="01">From MadTown Racing</SectionLabel>
+              <DisplayHeading id="club-media-heading" size="md" className="mt-4">
+                Built by students<span className="text-red">.</span>
+              </DisplayHeading>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+                The team is being built around real wheel-to-wheel motorsport and real responsibility.
+                Students can contribute through engineering, data, fabrication, race operations,
+                business, communications, media, or driving.
+              </p>
+              <p className="mt-4 font-mono text-xs tracking-[0.14em] text-dim uppercase">
+                Real club media from the team&apos;s recruiting materials
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       <Section id="role-explorer" aria-label="Role explorer" divider={false}>
         <Container>
