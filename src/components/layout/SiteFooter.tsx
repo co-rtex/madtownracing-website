@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { BrandMark } from "@/components/layout/BrandMark";
 import { Arrow } from "@/components/ui/Arrow";
 import { Container } from "@/components/ui/Container";
+import { brandAssets } from "@/content/brandAssets";
 import { footerNav, siteConfig } from "@/content/site";
 
 async function CurrentYear() {
@@ -17,7 +19,17 @@ export function SiteFooter() {
       <div aria-hidden="true" className="h-0.5 w-24 bg-red" />
       <Container className="grid gap-12 py-14 md:grid-cols-12 md:py-20">
         <div className="md:col-span-5">
-          <BrandMark />
+          <div className="flex items-center gap-5">
+            <BrandMark />
+            <Image
+              src={brandAssets.badge}
+              alt="MadTown Racing circular badge"
+              width={84}
+              height={84}
+              unoptimized
+              className="hidden size-16 shrink-0 rounded-full border border-line-strong object-cover sm:block"
+            />
+          </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-steel">{siteConfig.tagline}</p>
           <p className="eyebrow mt-6 text-muted">{siteConfig.location}</p>
         </div>
